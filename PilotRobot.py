@@ -165,6 +165,8 @@ while gamepad.isConnected():
         # Joystick changed
         # Value is the magnitude of how far the joystick is away from center
         # Future work: Make robot speed proportional to how far the stick is pushed
+        
+        # SUGGESTION: FORMAT THESES ELIF STATEMENTS THE SAME WAY AS THE ELIF SATEMENTS FOR THE BUTTONS?
         elif (control == 'RIGHT-Y') and (value == 0):
             bt7274.set_fwd_status(0)
             bt7274.set_back_status(0)
@@ -187,5 +189,9 @@ while gamepad.isConnected():
             bt7274.update_motion()
         # For testing and debugging joystick movement
         # print('%+.1f %% speed, %+.1f %% steering' % (linearSpeed * 100, turnSpeed * 100))
+
+    # Handle the event where the controller is idle (no inputs sent)
+    else:
+        continue
 
 bt7274.stop() # If controller is unplugged, terminate the serial connection
