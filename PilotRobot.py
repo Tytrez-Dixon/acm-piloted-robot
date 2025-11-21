@@ -172,10 +172,10 @@ while gamepad.isConnected():
             bt7274.set_back_status(0)
             bt7274.update_motion()
         elif (control == 'RIGHT-Y') and (value > 0):
-            bt7274.set_fwd_status(1)
+            bt7274.set_back_status(1)
             bt7274.update_motion()
         elif (control == 'RIGHT-Y') and (value < 0):
-            bt7274.set_back_status(1)
+            bt7274.set_fwd_status(1)
             bt7274.update_motion()
         elif (control == 'LEFT-X') and (value == 0):
             bt7274.set_right_status(0)
