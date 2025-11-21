@@ -75,30 +75,38 @@ while gamepad.isConnected():
             if value:
                 bt7274.set_fwd_status(1)
                 bt7274.update_motion()
+                print("Y button pressed")
             else:
                 bt7274.set_fwd_status(0)
                 bt7274.update_motion()
+                print("Y button released")
         elif control == 'B':
             if value:
                 bt7274.set_right_status(1)
                 bt7274.update_motion()
+                print("B button pressed")
             else:
                 bt7274.set_right_status(0)
                 bt7274.update_motion()
+                print("B button released")
         elif control == 'A':
             if value:
                 bt7274.set_back_status(1)
                 bt7274.update_motion()
+                print("A button pressed")
             else:
                 bt7274.set_back_status(0)
                 bt7274.update_motion()
+                print("A button released")
         elif control == 'X':
             if value:
                 bt7274.set_left_status(1)
                 bt7274.update_motion()
+                print("X button pressed")
             else:
                 bt7274.set_left_status(0)
                 bt7274.update_motion()
+                print("X button released")
 
         # Triggers should change the color of the LEDs, and also what song should play.
         elif (control == 'LB') and value:
