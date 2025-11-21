@@ -165,17 +165,17 @@ while gamepad.isConnected():
         # Joystick changed
         # Value is the magnitude of how far the joystick is away from center
         # Future work: Make robot speed proportional to how far the stick is pushed
-        
+
         # SUGGESTION: FORMAT THESES ELIF STATEMENTS THE SAME WAY AS THE ELIF SATEMENTS FOR THE BUTTONS?
         elif (control == 'RIGHT-Y') and (value == 0):
             bt7274.set_fwd_status(0)
             bt7274.set_back_status(0)
             bt7274.update_motion()
         elif (control == 'RIGHT-Y') and (value > 0):
-            bt7274.set_back_status(1)
+            bt7274.set_fwd_status(1)
             bt7274.update_motion()
         elif (control == 'RIGHT-Y') and (value < 0):
-            bt7274.set_fwd_status(1)
+            bt7274.set_back_status(1)
             bt7274.update_motion()
         elif (control == 'LEFT-X') and (value == 0):
             bt7274.set_right_status(0)
@@ -191,6 +191,7 @@ while gamepad.isConnected():
         # print('%+.1f %% speed, %+.1f %% steering' % (linearSpeed * 100, turnSpeed * 100))
 
     # Handle the event where the controller is idle (no inputs sent)
+    # Prevents roomba from randomly going forward continuously.
     else:
         continue
 
