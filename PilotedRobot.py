@@ -50,7 +50,7 @@ class PilotedRobot:
     # Status array used in the movement of the robot
     # Format:   W      A      S      D    is key pressed?
     status = [False, False, False, False]
-    # Standard speeds are 200 mm/s forwards and backwards
+    # Standard speeds are 400 mm/s forwards and backwards
 
     def __init__(self, port):
         try:
@@ -146,12 +146,14 @@ class PilotedRobot:
         # This function adjusts the movement of the robot, after the status register has been updated.
         # For example, to make the robot go forward, you would use set_fwd_status(true) then update_motion()
 
-        # Velocity  = ____mm/s (this is the same speed we use elsewhere, assume turning velocity is the same as straight velocity)
-
-        # THIS INFO IS OUTDATED! VELOCITY HAS BEEN CHANGED TO ______mm/s!
+        # Velocity  = 400mm/s (this is the same speed we use elsewhere, assume turning velocity is the same as straight velocity)
+        
+        #------------------------------------------------------------------------------
+        # THIS INFO IS OUTDATED! VELOCITY HAS BEEN CHANGED TO 400mm/s!
         # T = 15s (this means the robot should complete a full circle every 15 seconds)
         # Turn radius = 478mm (Derived from the formula v=(2*pi*r)/T )
         # This translates to \x01\xDE or \xFE\x22
+        #------------------------------------------------------------------------------
        
         # This treats the values in the status array as a binary number
         # and converts it into a decimal value for easy comparison within the switch case
