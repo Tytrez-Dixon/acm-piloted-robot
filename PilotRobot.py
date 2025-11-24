@@ -109,12 +109,14 @@ while gamepad.isConnected():
                 print("X button released")
 
         # Triggers should change the color of the LEDs, and also what song should play.
-        elif (control == 'LB') and value:
-            bt7274.switchMode(3)
+        # elif (control == 'LB') and value:
+        #     bt7274.switchMode(3)
         # elif (control == 'L2') and value:
         #     bt7274.switchMode(1)
-        elif (control == 'RB') and value:
-            bt7274.switchMode(2)
+        # elif (control == 'RB'):
+        #     if value:
+        #         bt7274.set_turbo_status
+            # bt7274.switchMode(2)
         # elif (control == 'R2') and value:
         #     bt7274.switchMode(4)
 

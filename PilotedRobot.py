@@ -48,8 +48,8 @@ class PilotedRobot:
     songMode = 0
 
     # Status array used in the movement of the robot
-    # Format:   W      A      S      D    is key pressed?
-    status = [False, False, False, False]
+    # Format: Turbo    A      S      D      W    is key pressed?
+    status = [False, False, False, False, False]
     # Standard speeds are 400 mm/s forwards and backwards
 
     def __init__(self, port):
@@ -202,17 +202,20 @@ class PilotedRobot:
             
         return status_num
 
-    def set_fwd_status(self, val: bool):
+    def set_turbo_status(self, val: bool):
         self.status[0] = val
 
-    def set_left_status(self, val: bool):
+    def set_fwd_status(self, val: bool):
         self.status[1] = val
 
-    def set_back_status(self, val: bool):
+    def set_left_status(self, val: bool):
         self.status[2] = val
 
-    def set_right_status(self, val: bool):
+    def set_back_status(self, val: bool):
         self.status[3] = val
+
+    def set_right_status(self, val: bool):
+        self.status[4] = val
 
     def switchMode(self, mode: int):
         # Switches between four different 'modes' aka LED color
