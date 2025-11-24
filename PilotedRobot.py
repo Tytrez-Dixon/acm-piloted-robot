@@ -1,5 +1,5 @@
 # Authors: Tytrez Dixon, Cannon Miles, Alan Wallace
-# Last Updated: 4/8/2025
+# Last Updated: 11/24/2025
 # Purpose: Functions to enable the iRobot Create 2 to be controlled via a gamepad (controller)
 # We used a wireless 2.4Ghz Xbox360 Controller
 
@@ -48,7 +48,7 @@ class PilotedRobot:
     songMode = 0
 
     # Status array used in the movement of the robot
-    # Format: Turbo    A      S      D      W    is key pressed?
+    # Format: Turbo    W      A      S      D     is key pressed?
     status = [False, False, False, False, False]
     # Standard speeds are 400 mm/s forwards and backwards
 
@@ -196,6 +196,39 @@ class PilotedRobot:
                 self.drive(b'\x01', b'\x90', b'\x00', b'\x01') # Turn Left (Counterclockwise) in Place
             case 15:
                 self.drive(b'\x00', b'\x00', b'\x00', b'\x00') # Stop
+            case 16:
+                self.drive(b'\x00', b'\x00', b'\x00', b'\x00') # (Turbo) Stop
+            case 17:
+                self.drive(b'\x01', b'\xF4', b'\xFF', b'\xFF') # (Turbo) Turn Right in Place
+            case 18:
+                self.drive(b'\xFE', b'\x0C', b'\x00', b'\x00') # (Turbo) Backwards
+            case 19:
+                self.drive(b'\xFE', b'\x0C', b'\xFE', b'\x22') # (Turbo) Backwards While Veering Right
+            case 20:
+                self.drive(b'\x01', b'\xF4', b'\x00', b'\x01') # (Turbo) Turn Left in Place
+            case 21:
+                self.drive(b'\x00', b'\x00', b'\x00', b'\x00') # (Turbo) Stop (No Rotation)
+            case 22:
+                self.drive(b'\xFE', b'\x0C', b'\x01', b'\xDE') # Backwards While Veering Left
+            case 23:
+                self.drive(b'\xFE', b'\x0C', b'\x00', b'\x00') # (Turbo) Backwards
+            case 24:
+                self.drive(b'\x01', b'\xF4', b'\x00', b'\x00') # (Turbo) Forward
+            case 25:
+                self.drive(b'\x01', b'\xF4', b'\xFE', b'\x22') # (Turbo) Forward While Veering Right
+            case 26:
+                self.drive(b'\x00', b'\x00', b'\x00', b'\x00') # (Turbo) Stop
+            case 27:
+                self.drive(b'\x01', b'\x90', b'\xFF', b'\xFF') # (Turbo) Turn Right in Place
+            case 28:
+                self.drive(b'\x01', b'\xF4', b'\x01', b'\xDE') # (Turbo) Forward While Veering Left
+            case 29:
+                self.drive(b'\x01', b'\xF4', b'\x00', b'\x00') # (Turbo) Forward
+            case 30:
+                self.drive(b'\x01', b'\xF4', b'\x00', b'\x01') # (Turbo) Turn Left in Place
+            case 31:
+                self.drive(b'\x00', b'\x00', b'\x00', b'\x00') # (Turbo) Stop
+
             case _:
                 # Default case
                 self.drive(b'\x00', b'\x00', b'\x00', b'\x00') # Stop
