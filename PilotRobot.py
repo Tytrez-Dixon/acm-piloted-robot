@@ -176,7 +176,7 @@ while gamepad.isConnected():
 
         # SUGGESTION: FORMAT THESES ELIF STATEMENTS THE SAME WAY AS THE ELIF SATEMENTS FOR THE BUTTONS?
         # Add dead zone for right joystick to account for snapback and stick-drift.
-        elif (control == 'RIGHT-Y') and (value <= 0.25 or value >= -0.25):
+        elif (control == 'RIGHT-Y') and (value <= 0.25 and value >= -0.25):
             bt7274.set_fwd_status(0)
             bt7274.set_back_status(0)
             bt7274.update_motion()
