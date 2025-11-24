@@ -64,6 +64,7 @@ class PilotedRobot:
         try:
             self.serial_connection = serial.Serial(port, baudrate=115200, timeout=1)
             print ("Connected!")
+            print ("YOU ARE ON THE TURBOTEST BRANCH")
         except serial.SerialException:
             print ("Connection failure!")
             return

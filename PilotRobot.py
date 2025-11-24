@@ -44,6 +44,7 @@ if not Gamepad.available():
         time.sleep(1.0)
 gamepad = gamepadType()
 print('Gamepad connected. Welcome back Pilot.')
+print('HEY! THIS IS THE TURBOTEST BRANCH!')
 
 '''
 This bit of code was only used for getting the numerical value of joystick magnitude
