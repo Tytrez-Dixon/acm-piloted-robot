@@ -189,16 +189,16 @@ while gamepad.isConnected():
             bt7274.set_fwd_status(1)
             bt7274.update_motion()
             print("Right joystick moved forward")
-        elif (control == 'LEFT-X') and (value == 0):
+        elif (control == 'LEFT-X') and (value <= 0.25 and value >= -0.25):
             bt7274.set_right_status(0)
             bt7274.set_left_status(0)
             bt7274.update_motion()
             print("Left joystick released")
-        elif (control == 'LEFT-X') and (value > 0):
+        elif (control == 'LEFT-X') and (value > 0.25):
             bt7274.set_right_status(1)
             bt7274.update_motion()
             print("Left joystick moved right")
-        elif (control == 'LEFT-X') and (value < 0):
+        elif (control == 'LEFT-X') and (value < -0.25):
             bt7274.set_left_status(1)
             bt7274.update_motion()
             print("Left joystick moved left")
