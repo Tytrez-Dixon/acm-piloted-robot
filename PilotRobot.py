@@ -68,6 +68,16 @@ while gamepad.isConnected():
 
     # Determine the type
     if eventType == 'BUTTON':
+
+        if (control == 'RB') and value:
+            # bt7274.switchMode(2)
+            if value:
+                bt7274.goFaster()
+                print("R Bumper pressed")
+            else:
+                bt7274.goSlower()
+                print("R bumper released")
+
         # This is a huge elif chain because it avoids checking one event multiple times.
         
         # Face buttons are used for making the robot move while pressed
@@ -114,14 +124,7 @@ while gamepad.isConnected():
             bt7274.switchMode(3)
         # elif (control == 'L2') and value:
         #     bt7274.switchMode(1)
-        elif (control == 'RB') and value:
-            # bt7274.switchMode(2)
-            if value:
-                bt7274.goFaster()
-                print("R Bumper pressed")
-            else:
-                bt7274.goSlower()
-                print("R bumper released")
+
         # elif (control == 'R2') and value:
         #     bt7274.switchMode(4)
 
