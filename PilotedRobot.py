@@ -165,33 +165,33 @@ class PilotedRobot:
             case 0:
                 self.drive(b'\x00', b'\x00', b'\x00', b'\x00') # Stop
             case 1:
-                self.drive(b'\x01', b'\x2C', b'\xFF', b'\xFF') # Turn Right (Clockwise) in Place
+                self.drive(b'\x01', b'\x90', b'\xFF', b'\xFF') # Turn Right (Clockwise) in Place
             case 2:
-                self.drive(b'\xFE', b'\xD4', b'\x00', b'\x00') # Backwards
+                self.drive(b'\xFE', b'\x70', b'\x00', b'\x00') # Backwards
             case 3:
-                self.drive(b'\xFE', b'\xD4', b'\xFE', b'\x22') # Backwards While Veering Right
+                self.drive(b'\xFE', b'\x70', b'\xFE', b'\x22') # Backwards While Veering Right
             case 4:
-                self.drive(b'\x01', b'\x2C', b'\x00', b'\x01') # Turn Left (Counterclockwise) in Place
+                self.drive(b'\x01', b'\x90', b'\x00', b'\x01') # Turn Left (Counterclockwise) in Place
             case 5:
                 self.drive(b'\x00', b'\x00', b'\x00', b'\x00') # Stop (No Rotation)
             case 6:
-                self.drive(b'\xFE', b'\xD4', b'\x01', b'\xDE') # Backwards While Veering Left
+                self.drive(b'\xFE', b'\x70', b'\x01', b'\xDE') # Backwards While Veering Left
             case 7:
-                self.drive(b'\xFE', b'\xD4', b'\x00', b'\x00') # Backwards
+                self.drive(b'\xFE', b'\x70', b'\x00', b'\x00') # Backwards
             case 8:
-                self.drive(b'\x01', b'\x2C', b'\x00', b'\x00') # Forward
+                self.drive(b'\x01', b'\x90', b'\x00', b'\x00') # Forward
             case 9:
-                self.drive(b'\x01', b'\x2C', b'\xFE', b'\x22') # Forward While Veering Right
+                self.drive(b'\x01', b'\x90', b'\xFE', b'\x22') # Forward While Veering Right
             case 10:
                 self.drive(b'\x00', b'\x00', b'\x00', b'\x00') # Stop
             case 11:
-                self.drive(b'\x01', b'\x2C', b'\xFF', b'\xFF') # Turn Right (Clockwise) in Place
+                self.drive(b'\x01', b'\x90', b'\xFF', b'\xFF') # Turn Right (Clockwise) in Place
             case 12:
-                self.drive(b'\x01', b'\x2C', b'\x01', b'\xDE') # Forward While Veering Left
+                self.drive(b'\x01', b'\x90', b'\x01', b'\xDE') # Forward While Veering Left
             case 13:
-                self.drive(b'\x01', b'\x2C', b'\x00', b'\x00') # Forward
+                self.drive(b'\x01', b'\x90', b'\x00', b'\x00') # Forward
             case 14:
-                self.drive(b'\x01', b'\x2C', b'\x00', b'\x01') # Turn Left (Counterclockwise) in Place
+                self.drive(b'\x01', b'\x90', b'\x00', b'\x01') # Turn Left (Counterclockwise) in Place
             case 15:
                 self.drive(b'\x00', b'\x00', b'\x00', b'\x00') # Stop
             case _:
