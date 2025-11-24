@@ -114,7 +114,13 @@ while gamepad.isConnected():
         # elif (control == 'L2') and value:
         #     bt7274.switchMode(1)
         elif (control == 'RB') and value:
-            bt7274.switchMode(2)
+            # bt7274.switchMode(2)
+            if value:
+                bt7274.goFaster()
+                print("R Bumper pressed")
+            else:
+                bt7274.goSlower()
+                print("R bumper released")
         # elif (control == 'R2') and value:
         #     bt7274.switchMode(4)
 

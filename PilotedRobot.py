@@ -47,6 +47,14 @@ class PilotedRobot:
     # when the playSong() function is called
     songMode = 0
 
+    # Handles what values to use for the 2 speeds.
+    turbo_high = b'\x01'
+    turbo_low = b'\xF4'
+    normal_high = b'\x01'
+    normal_low = b'\x90'
+    current_high = b'\x00'
+    current_low = b'\x90'
+
     # Status array used in the movement of the robot
     # Format:   W      A      S      D    is key pressed?
     status = [False, False, False, False]
@@ -107,6 +115,15 @@ class PilotedRobot:
 
     def safe(self):
         self.sendCommand(self.safe_cmd)
+
+
+    def goFaster(self):
+        self.current_high = self.turbo_high
+        self.current_low = self.turbo_low
+
+    def goSlower(self):
+        self.current_high = self.normal_high
+        self.current_low = self.normal_low
 
     def seekDock(self):
         self.sendCommand(self.seek_dock_cmd)   
@@ -179,7 +196,7 @@ class PilotedRobot:
             case 7:
                 self.drive(b'\xFE', b'\x70', b'\x00', b'\x00') # Backwards
             case 8:
-                self.drive(b'\x01', b'\x90', b'\x00', b'\x00') # Forward
+                self.drive(self.current_high, self.current_low, b'\x00', b'\x00') # Forward
             case 9:
                 self.drive(b'\x01', b'\x90', b'\xFE', b'\x22') # Forward While Veering Right
             case 10:
